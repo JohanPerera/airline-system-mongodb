@@ -1,0 +1,93 @@
+package com.airline.AirlineSystem.entity;
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+
+//@Entity
+//@Table(name="airports")
+@Document(collection = "airports")
+public class Airport {
+//
+@Transient
+public static final String SEQUENCE_NAME = "airports_sequence";
+
+    @Id
+    private Long id;
+
+
+//    @Column(name="name",nullable = false)
+    private String name;
+
+//    @Column(name="country",nullable = false)
+    private String country;
+
+//    @OneToMany(mappedBy = "fromAirport", fetch = FetchType.LAZY)
+    private List<Flight> fromFlightList;
+
+//    @OneToMany(mappedBy = "toAirport", fetch = FetchType.LAZY)
+    private List<Flight> toFlightList;
+
+    public Airport(String name, String country) {
+        super();
+        this.name = name;
+        this.country = country;
+    }
+
+//    public Airport(String name, String country, List<Flight> fromFlightList, List<Flight> toFlightList) {
+//        this.name = name;
+//        this.country = country;
+//        this.fromFlightList = fromFlightList;
+//        this.toFlightList = toFlightList;
+//    }
+
+    public Airport() {
+        super();
+    }
+
+    public List<Flight> getFromFlightList() {
+        return fromFlightList;
+    }
+
+    public void setFromFlightList(List<Flight> fromFlightList) {
+        this.fromFlightList = fromFlightList;
+    }
+
+    public List<Flight> getToFlightList() {
+        return toFlightList;
+    }
+
+    public void setToFlightList(List<Flight> toFlightList) {
+        this.toFlightList = toFlightList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+
+
+}
