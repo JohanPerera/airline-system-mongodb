@@ -3,6 +3,7 @@ package com.airline.AirlineSystem.entity;
 //import javax.persistence.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -25,25 +26,27 @@ public class Flight {
 
 //    @ManyToOne
 //    @JoinColumn(name = "from_airport_id",nullable = false)
+    @DBRef
     private Airport fromAirport;
 
 //    @ManyToOne
 //    @JoinColumn(name = "to_airport_id",nullable = false)
+    @DBRef
     private Airport toAirport;
 
 //    @Column(name="departure_time",nullable = false)
     private Date depTime;
 
 //    @OneToMany(mappedBy = "flight",fetch = FetchType.LAZY)
-    private List<Passenger> passengers;
+   // private List<Passenger> passengers;
 
-    public List<Passenger> getPassengers() {
-        return passengers;
-    }
-
-    public void setPassengers(List<Passenger> passengers) {
-        this.passengers = passengers;
-    }
+//    public List<Passenger> getPassengers() {
+//        return passengers;
+//    }
+//
+//    public void setPassengers(List<Passenger> passengers) {
+//        this.passengers = passengers;
+//    }
 
     public Flight() {
         super();

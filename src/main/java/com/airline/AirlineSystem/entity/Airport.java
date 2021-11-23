@@ -26,10 +26,10 @@ public static final String SEQUENCE_NAME = "airports_sequence";
     private String country;
 
 //    @OneToMany(mappedBy = "fromAirport", fetch = FetchType.LAZY)
-    private List<Flight> fromFlightList;
+    //private List<Flight> fromFlightList;
 
 //    @OneToMany(mappedBy = "toAirport", fetch = FetchType.LAZY)
-    private List<Flight> toFlightList;
+  //  private List<Flight> toFlightList;
 
     public Airport(String name, String country) {
         super();
@@ -48,21 +48,21 @@ public static final String SEQUENCE_NAME = "airports_sequence";
         super();
     }
 
-    public List<Flight> getFromFlightList() {
-        return fromFlightList;
-    }
-
-    public void setFromFlightList(List<Flight> fromFlightList) {
-        this.fromFlightList = fromFlightList;
-    }
-
-    public List<Flight> getToFlightList() {
-        return toFlightList;
-    }
-
-    public void setToFlightList(List<Flight> toFlightList) {
-        this.toFlightList = toFlightList;
-    }
+//    public List<Flight> getFromFlightList() {
+//        return fromFlightList;
+//    }
+//
+//    public void setFromFlightList(List<Flight> fromFlightList) {
+//        this.fromFlightList = fromFlightList;
+//    }
+//
+//    public List<Flight> getToFlightList() {
+//        return toFlightList;
+//    }
+//
+//    public void setToFlightList(List<Flight> toFlightList) {
+//        this.toFlightList = toFlightList;
+//    }
 
     public Long getId() {
         return id;

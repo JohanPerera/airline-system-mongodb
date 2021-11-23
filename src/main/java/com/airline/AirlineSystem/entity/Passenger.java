@@ -4,6 +4,7 @@ package com.airline.AirlineSystem.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //@Entity
@@ -29,6 +30,7 @@ public class Passenger {
 
 //    @ManyToOne
 //    @JoinColumn(name = "flight_id")
+    @DBRef
     private Flight flight;
 
     public Passenger() {
