@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Airline System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/topnavbar :: navbar"></div>
+
+
+<div class="container" align="center">
+
+    <div class="row">
+        <h1>Planes</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href = "@{/planes/new}" class = "btn btn-primary btn-sm mb-3">Add Plane</a>
+        </div>
+    </div>
+    <br>
+
+    <table class="table table-stripped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Plane ID</th>
+            <th>Registration Number</th>
+            <th>Model Number</th>
+            <th>Passenger Capacity</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "plane: ${planes}">
+            <td th:text = "${plane.id}"></td>
+            <td th:text = "${plane.registration_number}"></td>
+            <td th:text = "${plane.model_number}"></td>
+            <td th:text = "${plane.passenger_capacity}"></td>
+
+            <td>
+                <a th:href="@{/planes/edit/{id}(id=${plane.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/planes/{id}(id=${plane.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
