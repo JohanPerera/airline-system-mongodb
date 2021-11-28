@@ -4,12 +4,15 @@ import com.airline.AirlineSystem.entity.Airport;
 import com.airline.AirlineSystem.entity.Plane;
 import com.airline.AirlineSystem.repository.AirportRepository;
 import com.airline.AirlineSystem.repository.PlaneRepository;
+import com.airline.AirlineSystem.service.PlaneService;
 import com.airline.AirlineSystem.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class PlaneServiceImpl {
+@Service
+public class PlaneServiceImpl implements PlaneService {
     @Autowired
     PlaneRepository planeRepository;
 
