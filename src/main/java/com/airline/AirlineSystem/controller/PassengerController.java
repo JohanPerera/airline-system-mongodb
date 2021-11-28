@@ -37,9 +37,7 @@ public class PassengerController {
         Passenger passenger = new Passenger();
         model.addAttribute("passenger",passenger);
         model.addAttribute("flights",flightService.getAllFlights());
-        System.out.println("about to get packages");
         model.addAttribute("packages",packageService.getAllPackages());
-        System.out.println("Packages got");
         return "add_passenger";
     }
 

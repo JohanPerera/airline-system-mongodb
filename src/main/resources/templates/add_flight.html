@@ -20,14 +20,16 @@
                 <form th:action="@{/flights}" th:object="${flight}" method="POST">
                     <div class="form-group">
                         <label>Plane</label>
-                        <input
-                                type="text"
-                                name="plane"
-                                th:field="*{plane}"
-                                class="form-control"
-                        />
+                        <select class="form-control"  th:field="*{plane}"  aria-label="Default select example">
+                            <option  th:value="${plane.id}" th:each="plane:${planes}" th:text="${plane.model_number}"></option>
+                        </select>
                     </div>
-
+                    <div class="form-group">
+                        <label>Pilot</label>
+                        <select class="form-control"  th:field="*{pilot}"  aria-label="Default select example">
+                            <option  th:value="${pilot.id}" th:each="pilot:${pilots}" th:text="${pilot.name}"></option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>From</label>
                         <select  class="form-control"  th:field="*{fromAirport}" aria-label="Default select example">

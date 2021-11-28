@@ -3,6 +3,8 @@ package com.airline.AirlineSystem.controller;
 import com.airline.AirlineSystem.entity.Flight;
 import com.airline.AirlineSystem.service.AirportService;
 import com.airline.AirlineSystem.service.FlightService;
+import com.airline.AirlineSystem.service.PilotService;
+import com.airline.AirlineSystem.service.PlaneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,12 @@ public class FlightController {
 
     @Autowired
     private AirportService airportService;
+
+    @Autowired
+    private PlaneService planeService;
+
+    @Autowired
+    private PilotService pilotService;
 
     public FlightController(FlightService flightService) {
         super();
@@ -41,6 +49,8 @@ public class FlightController {
         Flight flight = new Flight();
         model.addAttribute("flight",flight);
         model.addAttribute("airports",airportService.getAllAirports());
+        model.addAttribute("pilots",pilotService.getAllPilots());
+        model.addAttribute("planes",planeService.getAllPlanes());
         return "add_flight";
     }
 
@@ -57,6 +67,8 @@ public class FlightController {
     public String editFlightForm(@PathVariable Long id, Model model){
         model.addAttribute("flight",flightService.getFlightById(id));
         model.addAttribute("airports",airportService.getAllAirports());
+        model.addAttribute("pilots",pilotService.getAllPilots());
+        model.addAttribute("planes",planeService.getAllPlanes());
         return "edit_flight";
     }
 
