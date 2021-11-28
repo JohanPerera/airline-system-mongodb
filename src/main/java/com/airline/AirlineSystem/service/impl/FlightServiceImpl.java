@@ -1,6 +1,5 @@
 package com.airline.AirlineSystem.service.impl;
 
-import com.airline.AirlineSystem.entity.Airport;
 import com.airline.AirlineSystem.entity.Flight;
 import com.airline.AirlineSystem.repository.FlightRepository;
 import com.airline.AirlineSystem.service.FlightService;
@@ -53,11 +52,6 @@ public class FlightServiceImpl implements FlightService {
     public Flight getFlightById(Long id) {
         return flightRepository.findById(id).get();
     }
-
-//    @Override
-//    public Flight getFlightById(Long id) {
-//        return flightRepository.getById(id);
-//    }
 
 
 }

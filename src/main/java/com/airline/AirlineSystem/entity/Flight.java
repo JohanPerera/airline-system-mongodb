@@ -1,16 +1,12 @@
 package com.airline.AirlineSystem.entity;
 
-//import javax.persistence.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-import java.util.List;
 
-//@Entity
-//@Table(name="flights")
 @Document(collection = "flights")
 public class Flight {
 
@@ -18,35 +14,17 @@ public class Flight {
     public static final String SEQUENCE_NAME = "flights_sequence";
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name="plane",nullable = false)
     private String plane;
 
-//    @ManyToOne
-//    @JoinColumn(name = "from_airport_id",nullable = false)
     @DBRef
     private Airport fromAirport;
 
-//    @ManyToOne
-//    @JoinColumn(name = "to_airport_id",nullable = false)
     @DBRef
     private Airport toAirport;
 
-//    @Column(name="departure_time",nullable = false)
     private Date depTime;
-
-//    @OneToMany(mappedBy = "flight",fetch = FetchType.LAZY)
-   // private List<Passenger> passengers;
-
-//    public List<Passenger> getPassengers() {
-//        return passengers;
-//    }
-//
-//    public void setPassengers(List<Passenger> passengers) {
-//        this.passengers = passengers;
-//    }
 
     public Flight() {
         super();
