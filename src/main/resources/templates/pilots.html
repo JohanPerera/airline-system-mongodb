@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Airline System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/topnavbar :: navbar"></div>
+
+
+<div class="container" align="center">
+
+    <div class="row">
+        <h1>Pilots</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href = "@{/pilots/new}" class = "btn btn-primary btn-sm mb-3">Add Pilot</a>
+        </div>
+    </div>
+    <br>
+
+    <table class="table table-stripped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Pilot ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "pilot: ${pilots}">
+            <td th:text = "${pilot.id}"></td>
+            <td th:text = "${pilot.name}"></td>
+            <td th:text = "${pilot.age}"></td>
+            <td>
+                <a th:href="@{/pilots/edit/{id}(id=${pilot.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/pilots/{id}(id=${pilot.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
