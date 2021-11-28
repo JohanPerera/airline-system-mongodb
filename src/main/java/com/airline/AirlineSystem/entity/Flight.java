@@ -16,13 +16,17 @@ public class Flight {
     @Id
     private Long id;
 
-    private String plane;
-
     @DBRef
     private Airport fromAirport;
 
     @DBRef
     private Airport toAirport;
+
+    @DBRef
+    private Pilot pilot;
+
+    @DBRef
+    private Plane plane;
 
     private Date depTime;
 
@@ -30,12 +34,29 @@ public class Flight {
         super();
     }
 
-    public Flight(String plane, Airport fromAirport, Airport toAirport, Date depTime) {
+    public Flight(String plane, Airport fromAirport, Airport toAirport, Pilot pilot, Plane plane1, Date depTime) {
         super();
-        this.plane = plane;
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
+        this.pilot = pilot;
+        this.plane = plane1;
         this.depTime = depTime;
+    }
+
+    public Plane getPlane() {
+        return plane;
+    }
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
+
+    public Pilot getPilot() {
+        return pilot;
+    }
+
+    public void setPilot(Pilot pilot) {
+        this.pilot = pilot;
     }
 
     public Long getId() {
@@ -46,13 +67,6 @@ public class Flight {
         this.id = id;
     }
 
-    public String getPlane() {
-        return plane;
-    }
-
-    public void setPlane(String plane) {
-        this.plane = plane;
-    }
 
     public Airport getFromAirport() {
         return fromAirport;

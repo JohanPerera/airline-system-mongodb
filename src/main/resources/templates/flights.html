@@ -29,6 +29,7 @@
         <tr>
             <th>Flight ID</th>
             <th>Plane</th>
+            <th>Pilot</th>
             <th>From</th>
             <th>To</th>
             <th>Departure Time</th>
@@ -38,7 +39,8 @@
         <tbody>
         <tr th:each = "flight: ${flights}">
             <td th:text = "${flight.id}"></td>
-            <td th:text = "${flight.plane}"></td>
+            <td th:text = "${flight.plane.model_number}"></td>
+            <td th:text = "${flight.pilot.name}"></td>
             <td th:text = "${flight.fromAirport.name}"></td>
             <td th:text = "${flight.toAirport.name}"></td>
             <td th:text = "${flight.depTime}"></td>

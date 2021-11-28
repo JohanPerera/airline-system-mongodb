@@ -58,7 +58,7 @@ public class PlaneController {
         existingPlane.setId(id);
         existingPlane.setRegistration_number(plane.getRegistration_number());
         existingPlane.setModel_number(plane.getModel_number());
-        existingPlane.setPassenger_capacity(plane.getModel_number());
+        existingPlane.setPassenger_capacity(plane.getPassenger_capacity());
 
         planeService.updatePlane(existingPlane);
         return "redirect:/planes";
