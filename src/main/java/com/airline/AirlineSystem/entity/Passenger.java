@@ -1,14 +1,12 @@
 package com.airline.AirlineSystem.entity;
 
-//import javax.persistence.*;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//@Entity
-//@Table(name = "passengers")
+
 @Document(collection = "passengers")
 public class Passenger {
 
@@ -16,35 +14,40 @@ public class Passenger {
     public static final String SEQUENCE_NAME = "passengers_sequence";
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "name",nullable = false)
     private String name;
 
-//    @Column(name="mobile_number")
     private String mobileNumber;
 
-//    @Column(name="NIC",unique = true)
     private String NIC;
 
-//    @ManyToOne
-//    @JoinColumn(name = "flight_id")
     @DBRef
     private Flight flight;
+
+    @DBRef
+    private Package aPackage;
 
     public Passenger() {
         super();
     }
 
-    public Passenger(String name, String mobileNumber, String NIC,Flight flight) {
+    public Passenger(String name, String mobileNumber, String NIC, Flight flight, Package aPackage) {
         super();
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.NIC = NIC;
         this.flight=flight;
+        this.aPackage = aPackage;
     }
 
+    public Package getaPackage() {
+        return aPackage;
+    }
+
+    public void setaPackage(Package aPackage) {
+        this.aPackage = aPackage;
+    }
 
     public Flight getFlight() {
         return flight;

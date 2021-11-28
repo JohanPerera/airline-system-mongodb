@@ -54,7 +54,13 @@
                         <div class="form-group">
                             <label>Flight ID</label>
                             <select class="form-control"  th:field="*{flight}"  aria-label="Default select example">
-                                <option  th:value="${flight.id}" th:each="flight:${flights}" th:text="${flight.id}"></option>
+                                <option  th:value="${flight.id}" th:each="flight:${flights}" th:text="${flight.id}+' - '+${flight.depTime}+' - from '+${flight.fromAirport.name}+' to '+${flight.toAirport.name}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Package ID</label>
+                            <select class="form-control"  th:field="*{aPackage}"  aria-label="Default select example">
+                                <option  th:value="${package.id}" th:each="package:${packages}" th:text="${package.id}"></option>
                             </select>
                         </div>
                         <div class="footer-body">

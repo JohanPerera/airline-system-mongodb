@@ -1,6 +1,5 @@
 package com.airline.AirlineSystem.service.impl;
 
-import com.airline.AirlineSystem.entity.Flight;
 import com.airline.AirlineSystem.entity.Passenger;
 import com.airline.AirlineSystem.repository.PassengerRepository;
 import com.airline.AirlineSystem.service.PassengerService;

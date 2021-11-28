@@ -1,16 +1,11 @@
 package com.airline.AirlineSystem.service.impl;
 
 import com.airline.AirlineSystem.entity.Airport;
-import com.airline.AirlineSystem.entity.DatabaseSequence;
-import com.airline.AirlineSystem.entity.Flight;
 import com.airline.AirlineSystem.repository.AirportRepository;
 import com.airline.AirlineSystem.service.AirportService;
 import com.airline.AirlineSystem.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -52,11 +47,6 @@ public class AirportServiceImpl implements AirportService {
     public Airport getAirportById(Long id) {
         return airportRepository.findById(id).get();
     }
-
-//    @Override
-//    public Airport getAirportById(Long id) {
-//        return airportRepository.getById(id);
-//    }
 
 
 }

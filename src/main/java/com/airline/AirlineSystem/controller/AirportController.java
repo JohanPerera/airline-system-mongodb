@@ -1,7 +1,6 @@
 package com.airline.AirlineSystem.controller;
 
 import com.airline.AirlineSystem.entity.Airport;
-import com.airline.AirlineSystem.entity.Passenger;
 import com.airline.AirlineSystem.service.AirportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
