@@ -8,7 +8,6 @@ public interface PackageService {
 
     List<Package> getAllPackages();
 
-
     Package addPackage(Package Package);
 
     void deletePackage(Long id);
